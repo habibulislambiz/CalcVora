@@ -3,939 +3,483 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CGPA to Percentage Calculator (All Universities) — Free & Accurate | Calvora</title>
-<meta name="description" content="Convert CGPA to percentage instantly. Supports CBSE (×9.5), VTU, Mumbai University, Anna University, AKTU and more. Free online calculator with university-wise formulas, conversion table, and FAQs.">
-<meta name="keywords" content="CGPA to percentage, CGPA calculator, VTU CGPA to percentage, Mumbai University CGPA, CBSE CGPA to percentage, Anna University CGPA">
+<title>Calvora — Free AI, Image, Student & Utility Tools</title>
+<meta name="description" content="Calvora offers 36+ free online tools: AI writing, image compression, CGPA calculator, PDF converters, and more. Fast, no signup, works in your browser.">
 <link rel="canonical" href="https://calvora.online/">
-<meta property="og:title" content="CGPA to Percentage Calculator (All Universities) — Calvora">
-<meta property="og:description" content="Free CGPA to percentage converter with university-specific formulas.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://calvora.online/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: {
       extend: {
         colors: {
-          primary: '#4f46e5',
-          'primary-dark': '#4338ca',
-          'primary-light': '#eef2ff',
-          accent: '#f59e0b'
+          primary: '#3730a3', /* Gehra Indigo - screen par visible */
+          'primary-dark': '#312e81',
+          'primary-light': '#e0e7ff',
+          accent: '#d97706'
         },
         fontFamily: {
           heading: ['Inter', 'sans-serif'],
           sans: ['Inter', 'sans-serif'],
-          mono: ['JetBrains Mono', 'monospace']
         }
       }
     }
   }
 </script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question","name": "Why does CBSE use a 9.5 multiplier?","acceptedAnswer": {"@type": "Answer","text": "CBSE analyzed five years of result data and found that students scoring 91-100 marks (A1 grade, 10 CGPA) averaged around 95%. Hence 95 divided by 10 gives the 9.5 multiplier."}},
-    {"@type": "Question","name": "Is CGPA to percentage conversion exact?","acceptedAnswer": {"@type": "Answer","text": "No. CBSE itself states this is an indicative conversion. Every university uses a different formula, so always verify with your institution."}},
-    {"@type": "Question","name": "What is Mumbai University's formula?","acceptedAnswer": {"@type": "Answer","text": "Engineering: (7.1 x CGPI) + 11. Other faculties: (CGPI - 0.75) x 10."}},
-    {"@type": "Question","name": "What is 8 CGPA in percentage at VTU?","acceptedAnswer": {"@type": "Answer","text": "Old scheme: (8.0 - 0.75) x 10 = 72.5%. New scheme (2021 onward): 8.0 x 10 = 80%."}},
-    {"@type": "Question","name": "How do I convert percentage back to CGPA?","acceptedAnswer": {"@type": "Answer","text": "Reverse the CBSE formula: CGPA = Percentage divided by 9.5. For example, 76% divided by 9.5 = 8.0 CGPA."}},
-    {"@type": "Question","name": "Do all universities use the same formula?","acceptedAnswer": {"@type": "Answer","text": "No. CBSE uses x9.5, VTU old uses (CGPA-0.75)x10, VTU new uses x10, Anna uses x10, Mumbai Engineering uses 7.1xCGPI+11, and AKTU uses CGPAx10-7.5."}},
-    {"@type": "Question","name": "Does a lower CGPA always mean a lower percentage?","acceptedAnswer": {"@type": "Answer","text": "Yes, they are proportional, but the multiplier differs. The same CGPA can produce results that differ by 5-7 marks across universities."}}
-  ]
-}
-</script>
 </head>
-<body class="bg-slate-50 text-slate-600 font-sans leading-relaxed antialiased">
+<body class="bg-slate-50 text-slate-700 font-sans leading-relaxed antialiased flex flex-col min-h-screen">
 
 <!-- ===== HEADER ===== -->
-<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-
+      
+      <!-- Logo -->
       <a href="/" class="flex items-center gap-2.5 font-heading font-extrabold text-xl tracking-tight">
-        <span class="w-8 h-8 bg-primary text-white rounded-lg grid place-items-center font-extrabold shadow-lg shadow-primary/30">C</span>
+        <span class="w-8 h-8 bg-primary text-white rounded-lg grid place-items-center font-extrabold shadow-md">C</span>
         <span class="text-slate-900">Calvora</span>
       </a>
-
-      <nav class="hidden md:flex items-center gap-7">
-        <a href="/" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Home</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-bold text-primary">Home</a>
         <a href="/all-tools.html" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">All Tools</a>
         <a href="/about.html" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">About</a>
         <a href="/contact.html" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Contact</a>
       </nav>
 
-      <button id="menuToggle" class="md:hidden text-2xl text-slate-900" aria-label="Menu">☰</button>
+      <!-- Mobile Menu Button -->
+      <button id="menuToggle" class="md:hidden text-2xl text-slate-900 font-bold" aria-label="Menu">☰</button>
     </div>
-
-    <nav id="mobileNav" class="hidden md:hidden pb-4">
-      <div class="flex flex-col gap-3">
-        <a href="/" class="text-sm font-medium text-slate-600 hover:text-primary">Home</a>
-        <a href="/all-tools.html" class="text-sm font-medium text-slate-600 hover:text-primary">All Tools</a>
-        <a href="/about.html" class="text-sm font-medium text-slate-600 hover:text-primary">About</a>
-        <a href="/contact.html" class="text-sm font-medium text-slate-600 hover:text-primary">Contact</a>
-      </div>
-    </nav>
   </div>
 </header>
 
-<!-- ===== HERO + TOOL BOX ===== -->
-<section class="relative overflow-hidden pt-12 pb-16 sm:pt-16 sm:pb-20">
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl -z-10"></div>
-  <div class="absolute top-40 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl -z-10"></div>
+  <!-- ===== HERO SECTION ===== -->
+<section class="relative pt-20 pb-16 overflow-hidden">
+  <!-- Background Glow -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <!-- Tagline Badge -->
+    <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-primary bg-primary-light rounded-full border border-primary/20 uppercase tracking-wider shadow-sm">
+      Your Everyday Digital Toolkit
+    </span>
+    
+    <!-- Main Heading -->
+    <h1 class="font-heading font-black tracking-tight text-4xl sm:text-5xl md:text-6xl text-slate-900 leading-tight mb-6">
+      Free Tools That <span class="text-primary">Just Work</span>
+    </h1>
+    
+    <!-- Subheading -->
+    <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
+      36+ fast, private, and free tools. No signup required. Everything runs 100% in your browser.
+    </p>
 
-    <div class="text-center max-w-3xl mx-auto">
-      <span class="inline-block px-4 py-1.5 mb-5 text-xs font-semibold text-primary bg-primary-light rounded-full border border-primary/20">
-        🎓 Most Accurate · 8 Universities Supported
-      </span>
-      <h1 class="font-heading font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.1]">
-        CGPA to <span class="text-primary">Percentage</span> Calculator
-      </h1>
-      <p class="mt-5 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-        Select your university and get the exact percentage in seconds. CBSE, VTU, Mumbai, Anna, AKTU — all supported.
-      </p>
-    </div>
-
-    <div class="mt-12 max-w-2xl mx-auto">
-      <div class="bg-white/90 backdrop-blur-md rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50 p-6 sm:p-8">
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div>
-            <label for="cgpaInput" class="block text-sm font-semibold text-slate-900 mb-2">
-              Enter your CGPA
-            </label>
-            <input
-              type="number"
-              id="cgpaInput"
-              min="0"
-              max="10"
-              step="0.01"
-              placeholder="e.g. 8.5"
-              class="w-full px-4 py-3 text-base font-mono font-bold text-slate-900 bg-slate-50 border border-slate-200 rounded-xl outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white placeholder:font-sans placeholder:font-normal placeholder:text-slate-400"
-            >
-          </div>
-
-          <div>
-            <label for="uniSelect" class="block text-sm font-semibold text-slate-900 mb-2">
-              Select your university
-            </label>
-            <select
-              id="uniSelect"
-              class="w-full px-4 py-3 text-base text-slate-900 bg-slate-50 border border-slate-200 rounded-xl outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white cursor-pointer"
-            >
-              <option value="cbse">CBSE / DU (× 9.5)</option>
-              <option value="vtu_old">VTU 2015/17/18 — (CGPA−0.75)×10</option>
-              <option value="vtu_new">VTU 2021+ — × 10</option>
-              <option value="anna">Anna University — × 10</option>
-              <option value="mumbai_eng">Mumbai (Engineering) — 7.1×CGPI+11</option>
-              <option value="mumbai_other">Mumbai (Other) — (CGPI−0.75)×10</option>
-              <option value="aktu">AKTU — CGPA×10−7.5</option>
-              <option value="gtu">GTU / JNTUH — (CGPA−0.5)×10</option>
-            </select>
-          </div>
-        </div>
-
-        <button
-          onclick="convertCGPA()"
-          class="w-full mt-6 py-4 text-base font-bold text-white bg-primary hover:bg-primary-dark rounded-xl shadow-lg shadow-primary/30 transition-all duration-200 active:scale-[0.98]"
-        >
-          Convert to Percentage →
-        </button>
-
-        <div id="resultBox" class="hidden mt-6 p-6 bg-gradient-to-br from-primary-light to-indigo-100/50 rounded-2xl border border-primary/20 text-center">
-          <div class="text-xs font-semibold text-slate-600 uppercase tracking-wider">Your Percentage</div>
-          <div id="resultValue" class="mt-2 font-mono font-bold text-5xl text-primary-dark leading-none">—</div>
-          <div id="resultFormula" class="mt-3 text-sm text-slate-600 font-mono"></div>
-        </div>
-
-        <div class="mt-5 flex items-center justify-center gap-2 text-xs text-slate-500">
-          <span>✓ No signup</span>
-          <span class="text-slate-300">·</span>
-          <span>✓ 100% free</span>
-          <span class="text-slate-300">·</span>
-          <span>✓ Runs in your browser</span>
-        </div>
-
+    <!-- Search Bar -->
+    <div class="max-w-xl mx-auto relative group">
+      <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+        <svg class="w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
       </div>
+      <input 
+        type="text" 
+        placeholder="Search tools... (e.g., CGPA, PDF, Image)" 
+        class="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-300 shadow-sm focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none text-slate-800 font-medium transition-all text-lg"
+      >
     </div>
-
+    
+    <!-- Popular Quick Links -->
+    <div class="mt-6 flex flex-wrap justify-center gap-2 text-sm">
+      <span class="text-slate-500 font-medium py-1">Popular:</span>
+      <a href="/cgpa-to-percentage.html" class="px-3 py-1 bg-white border border-slate-200 rounded-full hover:border-primary hover:text-primary transition-colors text-slate-700 shadow-sm">CGPA Converter</a>
+      <a href="/image-compressor.html" class="px-3 py-1 bg-white border border-slate-200 rounded-full hover:border-primary hover:text-primary transition-colors text-slate-700 shadow-sm">Image Compressor</a>
+      <a href="/password-generator.html" class="px-3 py-1 bg-white border border-slate-200 rounded-full hover:border-primary hover:text-primary transition-colors text-slate-700 shadow-sm">Password Generator</a>
+    </div>
   </div>
 </section>
 
-<!-- ===== CATEGORIES 3x2 BENTO GRID ===== -->
-<section class="py-16 sm:py-20 bg-white border-y border-slate-200">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- ===== CATEGORIES GRID (3x2) ===== -->
+<section class="py-16 bg-white border-y border-slate-200 flex-grow">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Heading -->
+    <div class="text-center mb-12">
+      <h2 class="font-heading font-extrabold tracking-tight text-3xl sm:text-4xl text-slate-900">Explore Categories</h2>
+      <p class="mt-3 text-slate-600">Pick a category to find the exact tool you need.</p>
+    </div>
 
+    <!-- Grid: 2 columns on mobile, 3 columns on desktop -->
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+
+      <!-- Card 1: AI Writing -->
+      <a href="/ai-writing-tools.html" class="group bg-white rounded-2xl border border-slate-200 p-4 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50 flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-primary-light text-primary grid place-items-center text-xl sm:text-3xl mb-3 sm:mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">✍️</div>
+          <h3 class="font-heading font-bold text-sm sm:text-lg text-slate-900 mb-1 sm:mb-2 leading-tight">AI Writing Tools</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3 sm:mb-5 hidden sm:block">Rewrite, generate, and polish text with AI.</p>
+        </div>
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary">6 tools <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+      </a>
+
+      <!-- Card 2: Social Media -->
+      <a href="/social-media-tools.html" class="group bg-white rounded-2xl border border-slate-200 p-4 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50 flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-primary-light text-primary grid place-items-center text-xl sm:text-3xl mb-3 sm:mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">📱</div>
+          <h3 class="font-heading font-bold text-sm sm:text-lg text-slate-900 mb-1 sm:mb-2 leading-tight">Social Media Tools</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3 sm:mb-5 hidden sm:block">Captions, hashtags, and bios that convert.</p>
+        </div>
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary">6 tools <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+      </a>
+
+      <!-- Card 3: Student Tools -->
+      <a href="/student-tools.html" class="group bg-white rounded-2xl border border-slate-200 p-4 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50 flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-primary-light text-primary grid place-items-center text-xl sm:text-3xl mb-3 sm:mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">🎓</div>
+          <h3 class="font-heading font-bold text-sm sm:text-lg text-slate-900 mb-1 sm:mb-2 leading-tight">Student Tools</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3 sm:mb-5 hidden sm:block">CGPA converters, timetables, and study helpers.</p>
+        </div>
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary">6 tools <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+      </a>
+
+      <!-- Card 4: Image Tools -->
+      <a href="/image-tools.html" class="group bg-white rounded-2xl border border-slate-200 p-4 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50 flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-primary-light text-primary grid place-items-center text-xl sm:text-3xl mb-3 sm:mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">🖼️</div>
+          <h3 class="font-heading font-bold text-sm sm:text-lg text-slate-900 mb-1 sm:mb-2 leading-tight">Image Tools</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3 sm:mb-5 hidden sm:block">Compress, convert, and resize images.</p>
+        </div>
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary">6 tools <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+      </a>
+
+      <!-- Card 5: File Converters -->
+      <a href="/file-converters.html" class="group bg-white rounded-2xl border border-slate-200 p-4 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50 flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-primary-light text-primary grid place-items-center text-xl sm:text-3xl mb-3 sm:mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">📄</div>
+          <h3 class="font-heading font-bold text-sm sm:text-lg text-slate-900 mb-1 sm:mb-2 leading-tight">File Converters</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3 sm:mb-5 hidden sm:block">PDF, Word, and image conversions.</p>
+        </div>
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary">6 tools <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+      </a>
+
+      <!-- Card 6: Text & Utility -->
+      <a href="/text-utility-tools.html" class="group bg-white rounded-2xl border border-slate-200 p-4 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50 flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-primary-light text-primary grid place-items-center text-xl sm:text-3xl mb-3 sm:mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">🔧</div>
+          <h3 class="font-heading font-bold text-sm sm:text-lg text-slate-900 mb-1 sm:mb-2 leading-tight">Text & Utility</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3 sm:mb-5 hidden sm:block">Case converters, passwords, QR codes.</p>
+        </div>
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary">6 tools <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===== WHY CALVORA (Features) ===== -->
+<section class="py-16 sm:py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
     <div class="text-center max-w-2xl mx-auto mb-12">
       <h2 class="font-heading font-extrabold tracking-tight text-3xl sm:text-4xl text-slate-900">
-        Explore All Categories
+        Why Choose Calvora?
       </h2>
-      <p class="mt-3 text-slate-600 leading-relaxed">
-        36+ free tools across 6 categories. Everything runs in your browser — no signup, no uploads.
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        We build tools that respect your time and privacy. No account creation, no hidden fees, and no uploading your files to a server.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid sm:grid-cols-3 gap-6">
+      <!-- Feature 1 -->
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-primary-light text-primary grid place-items-center text-2xl mb-5">⚡</div>
+        <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Lightning Fast</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Built with pure HTML and JS. No heavy frameworks means tools load instantly.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-primary-light text-primary grid place-items-center text-2xl mb-5">🔒</div>
+        <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">100% Private</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">All calculations and conversions happen right inside your web browser securely.</p>
+      </div>
 
-      <a href="/ai-writing-tools.html"
-         class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50">
-        <div class="w-12 h-12 rounded-xl bg-primary-light grid place-items-center text-2xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-          ✍️
-        </div>
-        <h3 class="font-heading font-extrabold tracking-tight text-xl text-slate-900 mb-1.5">
-          AI Writing Tools
-        </h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-          Rewrite, generate and polish text with AI-powered assistants.
-        </p>
-        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary-light px-3 py-1.5 rounded-full">
-          6 tools <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-        </span>
-      </a>
-
-      <a href="/social-media-tools.html"
-         class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50">
-        <div class="w-12 h-12 rounded-xl bg-primary-light grid place-items-center text-2xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-          📱
-        </div>
-        <h3 class="font-heading font-extrabold tracking-tight text-xl text-slate-900 mb-1.5">
-          Social Media Tools
-        </h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-          Captions, hashtags and bios that turn followers into fans.
-        </p>
-        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary-light px-3 py-1.5 rounded-full">
-          6 tools <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-        </span>
-      </a>
-
-      <a href="/student-tools.html"
-         class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50">
-        <div class="w-12 h-12 rounded-xl bg-primary-light grid place-items-center text-2xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-          🎓
-        </div>
-        <h3 class="font-heading font-extrabold tracking-tight text-xl text-slate-900 mb-1.5">
-          Student Tools
-        </h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-          CGPA converters, timetables, exam countdowns and study helpers.
-        </p>
-        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary-light px-3 py-1.5 rounded-full">
-          6 tools <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-        </span>
-      </a>
-
-      <a href="/image-tools.html"
-         class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50">
-        <div class="w-12 h-12 rounded-xl bg-primary-light grid place-items-center text-2xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-          🖼️
-        </div>
-        <h3 class="font-heading font-extrabold tracking-tight text-xl text-slate-900 mb-1.5">
-          Image Tools
-        </h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-          Compress, convert, resize and pick colors from any image.
-        </p>
-        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary-light px-3 py-1.5 rounded-full">
-          6 tools <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-        </span>
-      </a>
-
-      <a href="/file-converters.html"
-         class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50">
-        <div class="w-12 h-12 rounded-xl bg-primary-light grid place-items-center text-2xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-          📄
-        </div>
-        <h3 class="font-heading font-extrabold tracking-tight text-xl text-slate-900 mb-1.5">
-          File Converters
-        </h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-          PDF, Word and image conversions — right in your browser.
-        </p>
-        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary-light px-3 py-1.5 rounded-full">
-          6 tools <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-        </span>
-      </a>
-
-      <a href="/text-utility-tools.html"
-         class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/50">
-        <div class="w-12 h-12 rounded-xl bg-primary-light grid place-items-center text-2xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-          🔧
-        </div>
-        <h3 class="font-heading font-extrabold tracking-tight text-xl text-slate-900 mb-1.5">
-          Text & Utility Tools
-        </h3>
-        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-          Case converters, password generators, QR codes, Lorem Ipsum and more.
-        </p>
-        <span class="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary-light px-3 py-1.5 rounded-full">
-          6 tools <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-        </span>
-      </a>
-
+      <!-- Feature 3 -->
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-primary-light text-primary grid place-items-center text-2xl mb-5">🆓</div>
+        <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Always Free</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">No premium tiers, no watermarks. Every single tool is free for everyone.</p>
+      </div>
     </div>
+
   </div>
 </section>
 
-<!-- ===== SEO CONTENT PART 1 ===== -->
-<section class="py-16 sm:py-20 bg-slate-50">
+<!-- ===== SEO TEXT CONTENT ===== -->
+<section class="py-16 bg-white border-t border-slate-200">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Article Header -->
-    <div class="mb-12">
-      <span class="inline-block px-3 py-1 mb-4 text-xs font-bold text-primary bg-primary-light rounded-full">
-        Complete Guide · Updated 2026
-      </span>
-      <h2 class="font-heading font-extrabold tracking-tight text-3xl sm:text-4xl text-slate-900 leading-tight">
-        CGPA to Percentage: The Complete Guide
-      </h2>
-      <p class="mt-4 text-lg text-slate-600 leading-relaxed">
-        CGPA (Cumulative Grade Point Average) and percentage both measure the same academic performance, but the conversion system is not uniform across Indian universities. This guide breaks down every major university's official formula so you can convert your CGPA accurately.
+    <h2 class="font-heading font-extrabold tracking-tight text-3xl text-slate-900 mb-6 text-center">
+      The Ultimate Online Toolkit for Everyone
+    </h2>
+    
+    <div class="space-y-4 text-slate-600 leading-relaxed">
+      <p>
+        In today's fast-paced digital world, having the right tools at your fingertips can make all the difference. Whether you are a student calculating your CGPA to apply for a scholarship, a content creator looking for the perfect hashtag, or a professional needing to compress a PDF before an important meeting, <strong>Calvora</strong> is designed to help you get things done quickly.
+      </p>
+      <p>
+        Unlike many other platforms, we do not force you to create an account, provide an email address, or sign up for a newsletter just to use a basic calculator. Our philosophy is simple: <strong>open the website, use the tool, and get on with your day.</strong>
+      </p>
+      <p>
+        All our image processing and file conversion tools are built using modern client-side web technologies. This means your files never leave your device, ensuring complete privacy. Stop uploading sensitive documents to random servers. Welcome to the smarter, safer way to use the web.
       </p>
     </div>
-
-    <!-- The Problem -->
-    <div class="mb-12">
-      <p class="text-slate-600 leading-relaxed mb-4">
-        When you fill out a job application, a higher-studies admission form, or a scholarship application, you are often asked for a percentage. And that is where the most common mistake happens: <strong class="text-slate-900 font-semibold">every university uses a different formula</strong>.
-      </p>
-      <p class="text-slate-600 leading-relaxed">
-        Using the wrong formula can create a mismatch between your application form and your degree certificate — a problem that can delay admissions, loan approvals, or job offers.
-      </p>
-    </div>
-
-    <!-- CGPA vs Percentage -->
-    <div class="mb-12">
-      <h3 class="font-heading font-extrabold tracking-tight text-2xl text-slate-900 mb-4">
-        What is the difference between CGPA and percentage?
-      </h3>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-5">
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-10 rounded-lg bg-primary text-white grid place-items-center font-mono font-bold text-xs shrink-0">CGPA</div>
-          <div>
-            <p class="text-slate-600 leading-relaxed">
-              CGPA is the average of your overall academic performance on a 10-point scale (sometimes 7-point or 4-point). It is calculated by multiplying each subject's grade points by its credits, adding them up, and dividing by the total credits.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-lg bg-accent text-white grid place-items-center font-mono font-bold text-sm shrink-0">%</div>
-          <div>
-            <p class="text-slate-600 leading-relaxed">
-              Percentage expresses the same performance on a 100-point scale. The Indian job market, government exams (SSC, UPSC, banking), and many postgraduate programs still use percentage-based eligibility criteria, which is why CGPA has to be converted.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-amber-50 border-l-4 border-accent rounded-r-xl p-5">
-        <p class="text-sm text-slate-700 leading-relaxed">
-          <strong class="text-slate-900">⚠️ Important:</strong> CBSE's <span class="font-mono font-bold">9.5 multiplier</span> and VTU's <span class="font-mono font-bold">(CGPA − 0.75) × 10</span> produce very different results. The same 8.0 CGPA becomes <strong>76%</strong> under CBSE, <strong>72.5%</strong> under VTU's old scheme, and <strong>80%</strong> under Anna University. Using the wrong formula can create a serious mismatch.
-        </p>
-      </div>
-    </div>
-
-    <!-- University-wise Formulas -->
-    <div class="mb-12">
-      <h3 class="font-heading font-extrabold tracking-tight text-2xl text-slate-900 mb-2">
-        University-wise CGPA to Percentage Formulas
-      </h3>
-      <p class="text-slate-600 leading-relaxed mb-6">
-        Below are the official formulas for India's most common boards and universities. Each formula comes with a worked example so you can verify your own calculation.
-      </p>
-
-      <!-- Card 1: CBSE -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-8 h-8 rounded-lg bg-primary text-white grid place-items-center font-mono font-bold text-sm">1</span>
-          <h4 class="font-heading font-extrabold text-lg text-slate-900">CBSE / Delhi University</h4>
-        </div>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          CBSE introduced its grading system in 2010, and this formula has been the standard ever since. CBSE analyzed five years of result data and found that students scoring 91–100 marks (A1 grade, 10 CGPA) averaged around 95%. Hence, 95 ÷ 10 = 9.5 became the multiplier.
-        </p>
-        <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-5 py-3 mb-4">
-          <code class="font-mono font-bold text-primary-dark text-base">Percentage = CGPA × 9.5</code>
-        </div>
-        <p class="text-slate-700">
-          <strong class="text-slate-900">Example:</strong> CGPA 8.5 → 8.5 × 9.5 = <span class="font-mono font-bold text-primary">80.75%</span>
-        </p>
-        <p class="mt-3 text-sm text-slate-500 italic">
-          Note: CBSE itself states this is an indicative (approximate) percentage, not exact marks. Delhi University and several central universities use the same formula.
-        </p>
-      </div>
-
-      <!-- Card 2: VTU -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-8 h-8 rounded-lg bg-primary text-white grid place-items-center font-mono font-bold text-sm">2</span>
-          <h4 class="font-heading font-extrabold text-lg text-slate-900">VTU (Visvesvaraya Technological University)</h4>
-        </div>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          VTU's formula depends on your scheme. This inconsistency is a common source of confusion, so check your admission year carefully.
-        </p>
-
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div>
-            <p class="text-sm font-bold text-slate-900 mb-2">Old scheme (2015, 2017, 2018)</p>
-            <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-4 py-2.5 mb-2">
-              <code class="font-mono font-bold text-primary-dark text-sm">(CGPA − 0.75) × 10</code>
-            </div>
-            <p class="text-sm text-slate-600">CGPA 8.0 → <span class="font-mono font-bold text-slate-900">72.5%</span></p>
-          </div>
-          <div>
-            <p class="text-sm font-bold text-slate-900 mb-2">New scheme (2021 onward)</p>
-            <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-4 py-2.5 mb-2">
-              <code class="font-mono font-bold text-primary-dark text-sm">CGPA × 10</code>
-            </div>
-            <p class="text-sm text-slate-600">CGPA 8.0 → <span class="font-mono font-bold text-slate-900">80%</span></p>
-          </div>
-        </div>
-
-        <p class="mt-4 text-sm text-slate-500 italic">
-          The same CGPA gives a 7.5% difference between the old and new schemes. Always confirm your scheme before converting.
-        </p>
-      </div>
-
-      <!-- Card 3: Anna University -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-8 h-8 rounded-lg bg-primary text-white grid place-items-center font-mono font-bold text-sm">3</span>
-          <h4 class="font-heading font-extrabold text-lg text-slate-900">Anna University</h4>
-        </div>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          Anna University uses a simple multiplier: CGPA multiplied by 10. Keep in mind that grading here is strict — an 'O' grade (10 points) usually requires 90+ marks.
-        </p>
-        <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-5 py-3 mb-4">
-          <code class="font-mono font-bold text-primary-dark text-base">Percentage = CGPA × 10</code>
-        </div>
-        <p class="text-slate-700">
-          <strong class="text-slate-900">Example:</strong> CGPA 8.4 → 8.4 × 10 = <span class="font-mono font-bold text-primary">84%</span>
-        </p>
-      </div>
-
-      <!-- Card 4: Mumbai University -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-8 h-8 rounded-lg bg-primary text-white grid place-items-center font-mono font-bold text-sm">4</span>
-          <h4 class="font-heading font-extrabold text-lg text-slate-900">Mumbai University</h4>
-        </div>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          Mumbai University uses different formulas for different faculties, which is one of the most common conversion mistakes.
-        </p>
-
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div>
-            <p class="text-sm font-bold text-slate-900 mb-2">Engineering</p>
-            <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-4 py-2.5 mb-2">
-              <code class="font-mono font-bold text-primary-dark text-sm">(7.1 × CGPI) + 11</code>
-            </div>
-            <p class="text-sm text-slate-600">CGPI 8.0 → <span class="font-mono font-bold text-slate-900">67.8%</span></p>
-          </div>
-          <div>
-            <p class="text-sm font-bold text-slate-900 mb-2">Other faculties</p>
-            <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-4 py-2.5 mb-2">
-              <code class="font-mono font-bold text-primary-dark text-sm">(CGPI − 0.75) × 10</code>
-            </div>
-            <p class="text-sm text-slate-600">CGPI 8.0 → <span class="font-mono font-bold text-slate-900">72.5%</span></p>
-          </div>
-        </div>
-
-        <p class="mt-4 text-sm text-slate-500 italic">
-          The same CGPI produces a 4.7% difference. Engineering students must use the engineering-specific formula.
-        </p>
-      </div>
-
-      <!-- Card 5: AKTU -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-5">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-8 h-8 rounded-lg bg-primary text-white grid place-items-center font-mono font-bold text-sm">5</span>
-          <h4 class="font-heading font-extrabold text-lg text-slate-900">AKTU (Dr. A.P.J. Abdul Kalam Technical University)</h4>
-        </div>
-        <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-5 py-3 mb-4">
-          <code class="font-mono font-bold text-primary-dark text-base">Percentage = CGPA × 10 − 7.5</code>
-        </div>
-        <p class="text-slate-700">
-          <strong class="text-slate-900">Example:</strong> CGPA 8.0 → (8.0 × 10) − 7.5 = <span class="font-mono font-bold text-primary">72.5%</span>
-        </p>
-      </div>
-
-      <!-- Card 6: GTU -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7">
-        <div class="flex items-center gap-3 mb-3">
-          <span class="w-8 h-8 rounded-lg bg-primary text-white grid place-items-center font-mono font-bold text-sm">6</span>
-          <h4 class="font-heading font-extrabold text-lg text-slate-900">GTU / JNTUH / KTU</h4>
-        </div>
-        <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-5 py-3 mb-4">
-          <code class="font-mono font-bold text-primary-dark text-base">Percentage = (CGPA − 0.5) × 10</code>
-        </div>
-        <p class="text-slate-700">
-          <strong class="text-slate-900">Example:</strong> CGPA 8.0 → (8.0 − 0.5) × 10 = <span class="font-mono font-bold text-primary">75%</span>
-        </p>
-      </div>
-
-    </div>
-
   </div>
 </section>
 
-<!-- ===== SEO CONTENT PART 2 ===== -->
-<section class="py-16 sm:py-20 bg-white border-t border-slate-200">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Conversion Table -->
-    <div class="mb-14">
-      <h3 class="font-heading font-extrabold tracking-tight text-2xl sm:text-3xl text-slate-900 mb-3">
-        CGPA to Percentage Conversion Table
-      </h3>
-      <p class="text-slate-600 leading-relaxed mb-6">
-        This table shows how the same CGPA converts under each university's formula. Find your university's column to see your percentage at a glance.
-      </p>
-
-      <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
-        <table class="w-full text-sm border-collapse min-w-[640px]">
-          <thead>
-            <tr class="bg-primary text-white">
-              <th class="px-3 py-3 text-left font-heading font-bold text-xs uppercase tracking-wider">CGPA</th>
-              <th class="px-3 py-3 text-left font-heading font-bold text-xs uppercase tracking-wider">CBSE (×9.5)</th>
-              <th class="px-3 py-3 text-left font-heading font-bold text-xs uppercase tracking-wider">VTU Old</th>
-              <th class="px-3 py-3 text-left font-heading font-bold text-xs uppercase tracking-wider">Anna / VTU New</th>
-              <th class="px-3 py-3 text-left font-heading font-bold text-xs uppercase tracking-wider">Mumbai Eng</th>
-              <th class="px-3 py-3 text-left font-heading font-bold text-xs uppercase tracking-wider">AKTU</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100">
-            <tr class="hover:bg-slate-50 transition-colors"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">6.0</td><td class="px-3 py-2.5 font-mono text-slate-600">57.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">52.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">60.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">53.6%</td><td class="px-3 py-2.5 font-mono text-slate-600">52.5%</td></tr>
-            <tr class="hover:bg-slate-50 transition-colors"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">6.5</td><td class="px-3 py-2.5 font-mono text-slate-600">61.75%</td><td class="px-3 py-2.5 font-mono text-slate-600">57.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">65.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">57.15%</td><td class="px-3 py-2.5 font-mono text-slate-600">57.5%</td></tr>
-            <tr class="hover:bg-slate-50 transition-colors"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">7.0</td><td class="px-3 py-2.5 font-mono text-slate-600">66.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">62.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">70.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">60.7%</td><td class="px-3 py-2.5 font-mono text-slate-600">62.5%</td></tr>
-            <tr class="hover:bg-slate-50 transition-colors"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">7.5</td><td class="px-3 py-2.5 font-mono text-slate-600">71.25%</td><td class="px-3 py-2.5 font-mono text-slate-600">67.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">75.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">64.25%</td><td class="px-3 py-2.5 font-mono text-slate-600">67.5%</td></tr>
-            <tr class="hover:bg-slate-50 transition-colors bg-primary-light/40"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">8.0</td><td class="px-3 py-2.5 font-mono text-slate-600">76.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">72.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">80.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">67.8%</td><td class="px-3 py-2.5 font-mono text-slate-600">72.5%</td></tr>
-            <tr class="hover:bg-slate-50 transition-colors"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">8.5</td><td class="px-3 py-2.5 font-mono text-slate-600">80.75%</td><td class="px-3 py-2.5 font-mono text-slate-600">77.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">85.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">71.35%</td><td class="px-3 py-2.5 font-mono text-slate-600">77.5%</td></tr>
-            <tr class="hover:bg-slate-50 transition-colors"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">9.0</td><td class="px-3 py-2.5 font-mono text-slate-600">85.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">82.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">90.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">74.9%</td><td class="px-3 py-2.5 font-mono text-slate-600">82.5%</td></tr>
-            <tr class="hover:bg-slate-50 transition-colors"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">9.5</td><td class="px-3 py-2.5 font-mono text-slate-600">90.25%</td><td class="px-3 py-2.5 font-mono text-slate-600">87.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">95.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">78.45%</td><td class="px-3 py-2.5 font-mono text-slate-600">87.5%</td></tr>
-            <tr class="hover:bg-slate-50 transition-colors"><td class="px-3 py-2.5 font-mono font-bold text-slate-900">10.0</td><td class="px-3 py-2.5 font-mono text-slate-600">95.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">92.5%</td><td class="px-3 py-2.5 font-mono text-slate-600">100.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">82.0%</td><td class="px-3 py-2.5 font-mono text-slate-600">92.5%</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="mt-3 text-xs text-slate-500">
-        💡 Scroll the table horizontally on mobile. The highlighted row (8.0) is the most common CGPA.
-      </p>
-    </div>
-
-    <!-- Reverse Formula -->
-    <div class="mb-14">
-      <h3 class="font-heading font-extrabold tracking-tight text-2xl sm:text-3xl text-slate-900 mb-3">
-        How to Convert Percentage Back to CGPA
-      </h3>
-      <p class="text-slate-600 leading-relaxed mb-5">
-        If you have a percentage and need a CGPA, reverse the CBSE formula:
-      </p>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-5">
-        <div class="bg-primary-light border-l-4 border-primary rounded-r-lg px-5 py-4 mb-4">
-          <code class="font-mono font-bold text-primary-dark text-lg">CGPA = Percentage ÷ 9.5</code>
-        </div>
-        <p class="text-slate-700">
-          <strong class="text-slate-900">Example:</strong> 76% → 76 ÷ 9.5 = <span class="font-mono font-bold text-primary">8.0 CGPA</span>
-        </p>
-      </div>
-
-      <div class="bg-amber-50 border-l-4 border-accent rounded-r-xl p-5">
-        <p class="text-sm text-slate-700 leading-relaxed">
-          <strong class="text-slate-900">⚠️ Note:</strong> This reverse formula is only an approximation. If your university uses a different official formula (such as VTU or Mumbai), reverse-calculate using that formula. For job applications, always use the CGPA printed on your original mark sheet rather than a reverse-calculated value.
-        </p>
-      </div>
-    </div>
-
-    <!-- Conversion Certificate -->
-    <div class="mb-14">
-      <h3 class="font-heading font-extrabold tracking-tight text-2xl sm:text-3xl text-slate-900 mb-3">
-        What Is a Conversion Certificate, and When Do You Need One?
-      </h3>
-      <p class="text-slate-600 leading-relaxed mb-5">
-        Many universities (especially VTU and Mumbai) issue a <strong class="text-slate-900">Conversion Certificate</strong>, also called a <em>Percentage Equivalence Letter</em>. It officially states what your CGPA converts to as a percentage and which formula was used.
-      </p>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7">
-        <p class="font-heading font-bold text-slate-900 mb-3">When you need it:</p>
-        <ul class="space-y-2.5 text-slate-600">
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
-            <span>When a target university or employer does not accept your calculated formula</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
-            <span>For education loan applications, since many banks require it</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
-            <span>For government job forms that say "percentage as per university norms"</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
-            <span>For visa applications or foreign university admissions</span>
-          </li>
-        </ul>
-        <p class="mt-4 text-sm text-slate-500">
-          Apply through your university's examination section. Processing usually takes 3–7 working days and involves a nominal fee.
-        </p>
-      </div>
-    </div>
-
-    <!-- Common Mistakes -->
-    <div>
-      <h3 class="font-heading font-extrabold tracking-tight text-2xl sm:text-3xl text-slate-900 mb-3">
-        Common CGPA Conversion Mistakes to Avoid
-      </h3>
-      <p class="text-slate-600 leading-relaxed mb-6">
-        Avoiding these five mistakes reduces the risk of your application being rejected:
-      </p>
-
-      <div class="space-y-4">
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 flex gap-4">
-          <span class="w-8 h-8 rounded-lg bg-red-100 text-red-600 grid place-items-center font-mono font-bold text-sm shrink-0">1</span>
-          <div>
-            <p class="font-heading font-bold text-slate-900 mb-1">Using ×9.5 for every university</p>
-            <p class="text-sm text-slate-600 leading-relaxed">The 9.5 multiplier applies only to CBSE and Delhi University. VTU, Anna, Mumbai, and AKTU each have their own formulas.</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 flex gap-4">
-          <span class="w-8 h-8 rounded-lg bg-red-100 text-red-600 grid place-items-center font-mono font-bold text-sm shrink-0">2</span>
-          <div>
-            <p class="font-heading font-bold text-slate-900 mb-1">Ignoring VTU's old vs new scheme</p>
-            <p class="text-sm text-slate-600 leading-relaxed">The 2015/2017/2018 batch uses (CGPA − 0.75) × 10, while 2021 onward uses CGPA × 10. Confirm your admission year first.</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 flex gap-4">
-          <span class="w-8 h-8 rounded-lg bg-red-100 text-red-600 grid place-items-center font-mono font-bold text-sm shrink-0">3</span>
-          <div>
-            <p class="font-heading font-bold text-slate-900 mb-1">Missing the faculty rule at Mumbai University</p>
-            <p class="text-sm text-slate-600 leading-relaxed">Engineering and other faculties use different formulas. The same CGPI can differ by 4.7% depending on which one you use.</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 flex gap-4">
-          <span class="w-8 h-8 rounded-lg bg-red-100 text-red-600 grid place-items-center font-mono font-bold text-sm shrink-0">4</span>
-          <div>
-            <p class="font-heading font-bold text-slate-900 mb-1">Confusing CGPA with percentage</p>
-            <p class="text-sm text-slate-600 leading-relaxed">A CGPA of 8.0 and 8.0% are completely different values. Always double-check the field label on any form.</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 flex gap-4">
-          <span class="w-8 h-8 rounded-lg bg-red-100 text-red-600 grid place-items-center font-mono font-bold text-sm shrink-0">5</span>
-          <div>
-            <p class="font-heading font-bold text-slate-900 mb-1">Rounding off incorrectly</p>
-            <p class="text-sm text-slate-600 leading-relaxed">If your result is 72.55%, enter 72.55 on the form — do not round it to 73. Many institutions require you to enter the exact decimal.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== FAQ + RELATED TOOLS ===== -->
+  <!-- ===== FREQUENTLY ASKED QUESTIONS ===== -->
 <section class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- FAQ Header -->
+    
     <div class="text-center mb-10">
       <h2 class="font-heading font-extrabold tracking-tight text-3xl sm:text-4xl text-slate-900">
         Frequently Asked Questions
       </h2>
       <p class="mt-3 text-slate-600 leading-relaxed">
-        The seven questions students ask most about CGPA to percentage conversion.
+        Everything you need to know about Calvora and our tools.
       </p>
     </div>
 
-    <!-- FAQ Items -->
-    <div class="space-y-3">
-
-      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-slate-50 transition-colors">
-          <span class="font-heading font-bold text-slate-900 text-base sm:text-lg">1. Why does CBSE use a 9.5 multiplier?</span>
-          <span class="text-primary font-bold text-xl shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+    <div class="space-y-4">
+      
+      <!-- FAQ 1 -->
+      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
+        <summary class="cursor-pointer list-none p-5 sm:p-6 font-heading font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          1. Are all the tools on Calvora really free?
+          <span class="text-primary text-xl group-open:rotate-45 transition-transform duration-200 shrink-0 ml-4">+</span>
         </summary>
-        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed">
-          CBSE analyzed five years of result data and found that students scoring 91–100 marks (A1 grade, 10 CGPA) averaged around 95%. Since 95 ÷ 10 = 9.5, the board adopted 9.5 as the multiplier. It is an indicative value, not an exact marks conversion.
+        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed text-sm sm:text-base">
+          Yes, 100% free. There are no hidden charges, no premium subscriptions, and no daily usage limits. You can use every tool as many times as you need.
         </div>
       </details>
 
-      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-slate-50 transition-colors">
-          <span class="font-heading font-bold text-slate-900 text-base sm:text-lg">2. Is CGPA to percentage conversion exact?</span>
-          <span class="text-primary font-bold text-xl shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+      <!-- FAQ 2 -->
+      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
+        <summary class="cursor-pointer list-none p-5 sm:p-6 font-heading font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          2. Do I need to create an account or sign up?
+          <span class="text-primary text-xl group-open:rotate-45 transition-transform duration-200 shrink-0 ml-4">+</span>
         </summary>
-        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed">
-          No. CBSE itself describes the conversion as indicative (approximate). Every university uses its own multiplier, so always confirm your institution's official formula before submitting it on any form.
+        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed text-sm sm:text-base">
+          No account creation is required. You can use every tool instantly without providing an email address or logging in.
         </div>
       </details>
 
-      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-slate-50 transition-colors">
-          <span class="font-heading font-bold text-slate-900 text-base sm:text-lg">3. What is Mumbai University's formula?</span>
-          <span class="text-primary font-bold text-xl shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+      <!-- FAQ 3 -->
+      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
+        <summary class="cursor-pointer list-none p-5 sm:p-6 font-heading font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          3. Are my files or data uploaded to a server?
+          <span class="text-primary text-xl group-open:rotate-45 transition-transform duration-200 shrink-0 ml-4">+</span>
         </summary>
-        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed">
-          Engineering students use <span class="font-mono font-bold text-slate-900">(7.1 × CGPI) + 11</span>. Students in other faculties use <span class="font-mono font-bold text-slate-900">(CGPI − 0.75) × 10</span>. The two formulas produce noticeably different results, so confirm your faculty before converting.
+        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed text-sm sm:text-base">
+          For most image and text tools, your files are processed locally in your browser using JavaScript. They never leave your device, ensuring maximum privacy and security.
         </div>
       </details>
 
-      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-slate-50 transition-colors">
-          <span class="font-heading font-bold text-slate-900 text-base sm:text-lg">4. What is 8 CGPA in percentage at VTU?</span>
-          <span class="text-primary font-bold text-xl shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+      <!-- FAQ 4 -->
+      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
+        <summary class="cursor-pointer list-none p-5 sm:p-6 font-heading font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          4. Can I use these tools on my mobile phone or tablet?
+          <span class="text-primary text-xl group-open:rotate-45 transition-transform duration-200 shrink-0 ml-4">+</span>
         </summary>
-        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed">
-          Under the old scheme (2015/2017/2018): <span class="font-mono font-bold text-slate-900">(8.0 − 0.75) × 10 = 72.5%</span>. Under the new scheme (2021 onward): <span class="font-mono font-bold text-slate-900">8.0 × 10 = 80%</span>. The 7.5% difference is significant, so check your admission year.
+        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed text-sm sm:text-base">
+          Absolutely. Calvora is built with a mobile-first responsive design. Every calculator, converter, and tool works perfectly on smartphones, tablets, and desktop computers.
         </div>
       </details>
 
-      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-slate-50 transition-colors">
-          <span class="font-heading font-bold text-slate-900 text-base sm:text-lg">5. How do I convert percentage back to CGPA?</span>
-          <span class="text-primary font-bold text-xl shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+      <!-- FAQ 5 -->
+      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
+        <summary class="cursor-pointer list-none p-5 sm:p-6 font-heading font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          5. Do you add watermarks to compressed images or converted files?
+          <span class="text-primary text-xl group-open:rotate-45 transition-transform duration-200 shrink-0 ml-4">+</span>
         </summary>
-        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed">
-          Reverse the CBSE formula: <span class="font-mono font-bold text-slate-900">CGPA = Percentage ÷ 9.5</span>. For example, 76% ÷ 9.5 = 8.0 CGPA. Keep in mind this is only accurate if your university follows the CBSE formula; VTU, Mumbai, and others require their own reverse calculations.
+        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed text-sm sm:text-base">
+          Never. We believe in providing clean results. When you use our image compression or file conversion tools, you get your files back with zero watermarks or branding added.
         </div>
       </details>
 
-      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-slate-50 transition-colors">
-          <span class="font-heading font-bold text-slate-900 text-base sm:text-lg">6. Do all universities use the same formula?</span>
-          <span class="text-primary font-bold text-xl shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+      <!-- FAQ 6 -->
+      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
+        <summary class="cursor-pointer list-none p-5 sm:p-6 font-heading font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          6. How accurate is the CGPA to Percentage calculator?
+          <span class="text-primary text-xl group-open:rotate-45 transition-transform duration-200 shrink-0 ml-4">+</span>
         </summary>
-        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed">
-          No. CBSE uses ×9.5, VTU old scheme uses (CGPA − 0.75) × 10, VTU new scheme uses ×10, Anna University uses ×10, Mumbai Engineering uses 7.1 × CGPI + 11, and AKTU uses CGPA × 10 − 7.5. Always use your own university's formula.
+        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed text-sm sm:text-base">
+          Our calculator uses the official formulas provided by various boards and universities (such as CBSE, VTU, Mumbai University, etc.). It provides highly accurate results based on the specific institution you select.
         </div>
       </details>
 
-      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <summary class="cursor-pointer list-none p-5 sm:p-6 flex items-start justify-between gap-4 hover:bg-slate-50 transition-colors">
-          <span class="font-heading font-bold text-slate-900 text-base sm:text-lg">7. Does a lower CGPA always mean a lower percentage?</span>
-          <span class="text-primary font-bold text-xl shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+      <!-- FAQ 7 -->
+      <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
+        <summary class="cursor-pointer list-none p-5 sm:p-6 font-heading font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+          7. Who built Calvora, and how can I contact you?
+          <span class="text-primary text-xl group-open:rotate-45 transition-transform duration-200 shrink-0 ml-4">+</span>
         </summary>
-        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed">
-          CGPA and percentage are proportional, so a lower CGPA always yields a lower percentage. However, the multiplier varies by university, so the same CGPA can produce results that differ by 5–7 marks across institutions.
+        <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed text-sm sm:text-base">
+          Calvora is built and maintained by a small team of web developers passionate about minimalist, fast, and useful web products. You can reach us anytime through the Contact page linked in the footer.
         </div>
       </details>
 
     </div>
-
-    <!-- Related Tools -->
-    <div class="mt-16">
-      <h2 class="font-heading font-extrabold tracking-tight text-2xl sm:text-3xl text-slate-900 mb-2">
-        Related Tools
-      </h2>
-      <p class="text-slate-600 leading-relaxed mb-6">
-        More free calculators and student tools from Calvora.
-      </p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-        <a href="/marks-percentage-calculator.html"
-           class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-center gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/50">
-          <div class="w-11 h-11 rounded-xl bg-primary-light grid place-items-center text-xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">📊</div>
-          <div class="flex-1 min-w-0">
-            <p class="font-heading font-bold text-slate-900 text-sm">Marks Percentage Calculator</p>
-            <p class="text-xs text-slate-500 mt-0.5">Convert marks to percentage instantly.</p>
-          </div>
-          <span class="text-primary text-lg group-hover:translate-x-0.5 transition-transform">→</span>
-        </a>
-
-        <a href="/study-timetable-generator.html"
-           class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-center gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/50">
-          <div class="w-11 h-11 rounded-xl bg-primary-light grid place-items-center text-xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">📅</div>
-          <div class="flex-1 min-w-0">
-            <p class="font-heading font-bold text-slate-900 text-sm">Study Timetable Generator</p>
-            <p class="text-xs text-slate-500 mt-0.5">Build a personalized study schedule.</p>
-          </div>
-          <span class="text-primary text-lg group-hover:translate-x-0.5 transition-transform">→</span>
-        </a>
-
-        <a href="/exam-countdown-timer.html"
-           class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-center gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/50">
-          <div class="w-11 h-11 rounded-xl bg-primary-light grid place-items-center text-xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">⏳</div>
-          <div class="flex-1 min-w-0">
-            <p class="font-heading font-bold text-slate-900 text-sm">Exam Countdown Timer</p>
-            <p class="text-xs text-slate-500 mt-0.5">Track days left until your exam.</p>
-          </div>
-          <span class="text-primary text-lg group-hover:translate-x-0.5 transition-transform">→</span>
-        </a>
-
-        <a href="/word-counter.html"
-           class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-center gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/50">
-          <div class="w-11 h-11 rounded-xl bg-primary-light grid place-items-center text-xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">📝</div>
-          <div class="flex-1 min-w-0">
-            <p class="font-heading font-bold text-slate-900 text-sm">Word Counter</p>
-            <p class="text-xs text-slate-500 mt-0.5">Count words and reading time instantly.</p>
-          </div>
-          <span class="text-primary text-lg group-hover:translate-x-0.5 transition-transform">→</span>
-        </a>
-
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="bg-white border-t border-slate-200">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-
-      <!-- Brand -->
-      <div class="lg:col-span-2">
-        <a href="/" class="flex items-center gap-2.5 font-heading font-extrabold text-xl tracking-tight mb-4">
-          <span class="w-8 h-8 bg-primary text-white rounded-lg grid place-items-center font-extrabold shadow-lg shadow-primary/30">C</span>
-          <span class="text-slate-900">Calvora</span>
-        </a>
-        <p class="text-sm text-slate-600 leading-relaxed max-w-sm">
-          Free online tools for students, professionals, and creators. Built for speed, privacy, and simplicity. No signup, no watermarks, no limits.
-        </p>
-      </div>
-
-      <!-- Categories -->
+  <!-- ===== POPULAR TOOLS ===== -->
+<section class="py-16 bg-white border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
       <div>
-        <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-slate-500 mb-4">Categories</h4>
-        <ul class="space-y-2.5">
-          <li><a href="/ai-writing-tools.html" class="text-sm text-slate-600 hover:text-primary transition-colors">AI Writing</a></li>
-          <li><a href="/image-tools.html" class="text-sm text-slate-600 hover:text-primary transition-colors">Image Tools</a></li>
-          <li><a href="/student-tools.html" class="text-sm text-slate-600 hover:text-primary transition-colors">Student Tools</a></li>
-          <li><a href="/file-converters.html" class="text-sm text-slate-600 hover:text-primary transition-colors">File Converters</a></li>
-        </ul>
+        <h2 class="font-heading font-extrabold tracking-tight text-2xl sm:text-3xl text-slate-900">
+          Most Popular Tools
+        </h2>
+        <p class="mt-2 text-slate-600">Quick access to the tools our users love the most.</p>
       </div>
-
-      <!-- Company -->
-      <div>
-        <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-slate-500 mb-4">Company</h4>
-        <ul class="space-y-2.5">
-          <li><a href="/about.html" class="text-sm text-slate-600 hover:text-primary transition-colors">About</a></li>
-          <li><a href="/contact.html" class="text-sm text-slate-600 hover:text-primary transition-colors">Contact</a></li>
-          <li><a href="/privacy.html" class="text-sm text-slate-600 hover:text-primary transition-colors">Privacy Policy</a></li>
-          <li><a href="/all-tools.html" class="text-sm text-slate-600 hover:text-primary transition-colors">All Tools</a></li>
-        </ul>
-      </div>
-
+      <a href="/all-tools.html" class="inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-primary-dark transition-colors">
+        View all tools <span>→</span>
+      </a>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="text-xs text-slate-500">© 2025 Calvora.online — All rights reserved.</p>
-      <p class="text-xs text-slate-500">Made with care for students worldwide.</p>
+    <!-- 4 Tool Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+
+      <!-- Tool 1 -->
+      <a href="/cgpa-to-percentage.html" class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-start gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/50">
+        <div class="w-12 h-12 rounded-xl bg-primary-light text-primary grid place-items-center text-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+          🎓
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="font-heading font-bold text-slate-900 text-sm sm:text-base mb-1 group-hover:text-primary transition-colors">CGPA to Percentage</p>
+          <p class="text-xs text-slate-500 leading-snug">Convert CGPA instantly with university formulas.</p>
+        </div>
+      </a>
+
+      <!-- Tool 2 -->
+      <a href="/image-compressor.html" class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-start gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/50">
+        <div class="w-12 h-12 rounded-xl bg-primary-light text-primary grid place-items-center text-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+          🖼️
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="font-heading font-bold text-slate-900 text-sm sm:text-base mb-1 group-hover:text-primary transition-colors">Image Compressor</p>
+          <p class="text-xs text-slate-500 leading-snug">Reduce image file size without losing quality.</p>
+        </div>
+      </a>
+
+      <!-- Tool 3 -->
+      <a href="/password-generator.html" class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-start gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/50">
+        <div class="w-12 h-12 rounded-xl bg-primary-light text-primary grid place-items-center text-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+          🔐
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="font-heading font-bold text-slate-900 text-sm sm:text-base mb-1 group-hover:text-primary transition-colors">Password Generator</p>
+          <p class="text-xs text-slate-500 leading-snug">Create strong, secure, unguessable passwords.</p>
+        </div>
+      </a>
+
+      <!-- Tool 4 -->
+      <a href="/word-counter.html" class="group bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex items-start gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/50">
+        <div class="w-12 h-12 rounded-xl bg-primary-light text-primary grid place-items-center text-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
+          📝
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="font-heading font-bold text-slate-900 text-sm sm:text-base mb-1 group-hover:text-primary transition-colors">Word Counter</p>
+          <p class="text-xs text-slate-500 leading-snug">Count words, characters, and reading time.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===== HIGHLIGHTED DARK FOOTER ===== -->
+<footer class="bg-slate-900 text-slate-300 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-8">
+      
+      <!-- Brand Column -->
+      <div class="md:col-span-2">
+        <a href="/" class="flex items-center gap-2.5 font-heading font-extrabold text-2xl tracking-tight mb-4 text-white">
+          <span class="w-9 h-9 bg-primary text-white rounded-lg grid place-items-center font-extrabold shadow-lg shadow-primary/20">C</span>
+          Calvora
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed max-w-sm mb-6">
+          Free online tools for everyone. Built for speed, privacy, and simplicity. No signup, no watermarks, no limits.
+        </p>
+        <div class="flex items-center gap-4 text-sm text-slate-400">
+          <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 100% Free</span>
+          <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> Secure</span>
+        </div>
+      </div>
+
+      <!-- Categories Links -->
+      <div>
+        <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Categories</h4>
+        <ul class="space-y-3">
+          <li><a href="/ai-writing-tools.html" class="text-sm text-slate-400 hover:text-white transition-colors">AI Writing</a></li>
+          <li><a href="/student-tools.html" class="text-sm text-slate-400 hover:text-white transition-colors">Student Tools</a></li>
+          <li><a href="/image-tools.html" class="text-sm text-slate-400 hover:text-white transition-colors">Image Tools</a></li>
+          <li><a href="/file-converters.html" class="text-sm text-slate-400 hover:text-white transition-colors">File Converters</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Links -->
+      <div>
+        <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Company</h4>
+        <ul class="space-y-3">
+          <li><a href="/about.html" class="text-sm text-slate-400 hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/contact.html" class="text-sm text-slate-400 hover:text-white transition-colors">Contact</a></li>
+          <li><a href="/privacy.html" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/all-tools.html" class="text-sm text-slate-400 hover:text-white transition-colors">All Tools</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-slate-500">© 2025 Calvora.online — All rights reserved.</p>
+      <p class="text-sm text-slate-500">Made with <span class="text-red-500">♥</span> for the web.</p>
     </div>
   </div>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
+<!-- ===== JAVASCRIPT (Mobile Menu Toggle) ===== -->
 <script>
-  // ---- Mobile menu toggle ----
-  (function () {
-    const toggle = document.getElementById('menuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    if (toggle && mobileNav) {
-      toggle.addEventListener('click', function () {
-        mobileNav.classList.toggle('hidden');
-        toggle.textContent = mobileNav.classList.contains('hidden') ? '☰' : '✕';
-      });
-    }
-  })();
-
-  // ---- CGPA to Percentage conversion ----
-  function convertCGPA() {
-    const input = document.getElementById('cgpaInput');
-    const select = document.getElementById('uniSelect');
-    const resultBox = document.getElementById('resultBox');
-    const resultValue = document.getElementById('resultValue');
-    const resultFormula = document.getElementById('resultFormula');
-
-    const cgpa = parseFloat(input.value);
-
-    // Validation
-    if (isNaN(cgpa)) {
-      resultBox.classList.remove('hidden');
-      resultValue.textContent = '—';
-      resultFormula.textContent = 'Please enter a valid CGPA.';
-      return;
-    }
-    if (cgpa < 0 || cgpa > 10) {
-      resultBox.classList.remove('hidden');
-      resultValue.textContent = '—';
-      resultFormula.textContent = 'CGPA must be between 0 and 10.';
-      return;
-    }
-
-    const uni = select.value;
-    let percentage = 0;
-    let formulaText = '';
-
-    switch (uni) {
-      case 'cbse':
-        percentage = cgpa * 9.5;
-        formulaText = `CGPA × 9.5 = ${percentage.toFixed(2)}%`;
-        break;
-      case 'vtu_old':
-        percentage = (cgpa - 0.75) * 10;
-        formulaText = `(CGPA − 0.75) × 10 = ${percentage.toFixed(2)}%`;
-        break;
-      case 'vtu_new':
-        percentage = cgpa * 10;
-        formulaText = `CGPA × 10 = ${percentage.toFixed(2)}%`;
-        break;
-      case 'anna':
-        percentage = cgpa * 10;
-        formulaText = `CGPA × 10 = ${percentage.toFixed(2)}%`;
-        break;
-      case 'mumbai_eng':
-        percentage = (7.1 * cgpa) + 11;
-        formulaText = `(7.1 × CGPI) + 11 = ${percentage.toFixed(2)}%`;
-        break;
-      case 'mumbai_other':
-        percentage = (cgpa - 0.75) * 10;
-        formulaText = `(CGPI − 0.75) × 10 = ${percentage.toFixed(2)}%`;
-        break;
-      case 'aktu':
-        percentage = (cgpa * 10) - 7.5;
-        formulaText = `CGPA × 10 − 7.5 = ${percentage.toFixed(2)}%`;
-        break;
-      case 'gtu':
-        percentage = (cgpa - 0.5) * 10;
-        formulaText = `(CGPA − 0.5) × 10 = ${percentage.toFixed(2)}%`;
-        break;
-      default:
-        percentage = cgpa * 9.5;
-        formulaText = `CGPA × 9.5 = ${percentage.toFixed(2)}%`;
-    }
-
-    // Clamp to 0–100 for safety
-    if (percentage < 0) percentage = 0;
-    if (percentage > 100) percentage = 100;
-
-    resultBox.classList.remove('hidden');
-    resultValue.textContent = percentage.toFixed(2) + '%';
-    resultFormula.textContent = formulaText;
+  const menuBtn = document.getElementById('menuToggle');
+  const navMenu = document.querySelector('header nav');
+  
+  if (menuBtn && navMenu) {
+    menuBtn.addEventListener('click', () => {
+      const isHidden = navMenu.classList.contains('hidden');
+      
+      if (isHidden) {
+        // Show menu
+        navMenu.classList.remove('hidden');
+        navMenu.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'w-full', 'bg-white', 'p-5', 'border-b', 'border-slate-200', 'shadow-lg', 'gap-4');
+        menuBtn.textContent = '✕'; // Close icon
+      } else {
+        // Hide menu
+        navMenu.classList.add('hidden');
+        navMenu.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'w-full', 'bg-white', 'p-5', 'border-b', 'border-slate-200', 'shadow-lg', 'gap-4');
+        menuBtn.textContent = '☰'; // Hamburger icon
+      }
+    });
   }
-
-  // ---- Enter key triggers conversion ----
-  document.getElementById('cgpaInput').addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') convertCGPA();
-  });
 </script>
 
 </body>
